@@ -12,6 +12,7 @@ p {
 
 h1, h2 {
   text-transform: capitalize;
+  margin: 0;
 }
 
 input[type="text"] {
@@ -61,6 +62,7 @@ select {
   display: flex;
   flex-direction: row;
   align-items: center;
+  margin: 10px 0;
 }
 
 .form-question {
@@ -102,6 +104,12 @@ select {
   align-items: center;
 }
 
+.error {
+  background-color: #FA4B4C;
+  color: #FFFFFF;
+}
+
 .answer-image {
   height: 40px;
+  margin-right: 20px;
 }

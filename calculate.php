@@ -5,6 +5,7 @@
 
   $form = new Form($_POST);
   $sum = '';
+  $errors = [];
 
   if ($form->isSubmitted()) {
 
