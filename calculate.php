@@ -1,25 +1,31 @@
 <?php
-  $split = '1';
-  $cost = '';
-  $tip = '';
-  $round = '';
+  require('Form.php');
+
+  use DWA\Form;
+
+  $form = new Form($_POST);
   $sum = '';
 
-  if(isset($_POST['calculate'])) {
-    $split = $_POST['split'];
-    $cost = $_POST['cost'];
-    $tip = $_POST['tip'];
+  if ($form->isSubmitted()) {
 
-    if(isset($_POST['round'])) {
-      $round = "checked='checked'";
-    } else {
-      $round = '';
-    }
+    # Retrieve data from form
+    $split = $form->get('split', 1);
+    $cost = $form->get('cost', 1);
+    $tip = $form->get('tip');
+    $round = $form->isChosen('round');
 
-    $sum = (int)$cost * (1 + (int)$tip / 100) / (int)$split;
+    # Validate
+    $errors = $form->validate([
+      'split' => 'required',
+      'cost' => 'required'
+    ]);
 
-    if(strlen($round)) {
-      $sum = ceil($sum);
+    if (empty($errors)) {
+      $sum = (int)$cost * (1 + (int)$tip / 100) / (int)$split;
+
+      if(strlen($round)) {
+        $sum = ceil($sum);
+      }
     }
   }
 ?>

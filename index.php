@@ -17,7 +17,7 @@
         <p>Split how many ways?</p>
         <p class="required-text">*Required</p>
       </h2>
-      <input class="form-input" type="text" name="split" value="<?php echo $split; ?>"/>
+      <input class="form-input" type="number" name="split" min="1" value="<?php echo $split; ?>"/>
     </div>
 
     <div class="form-container">
@@ -25,7 +25,7 @@
         <p>How much was the tab?</p>
         <p class="required-text">*Required</p>
       </h2>
-      <input class="form-input" type="text" name="cost" value="<?php echo $cost; ?>"/>
+      <input class="form-input" type="number" name="cost" min="1" value="<?php echo $cost; ?>"/>
     </div>
 
     <div class="form-container">
